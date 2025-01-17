@@ -1,0 +1,49 @@
+.contact-btn {
+    position: relative;
+    z-index: 10;
+    width: fit-content;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 9999px;
+    padding: 0.75rem 1.75rem;
+
+    --tw-bg-opacity: 1;
+    background-color: rgb(245 243 255 / var(--tw-bg-opacity)) /* #f5f3ff */;
+
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity)) /* #000000 */;
+
+    &:hover {
+
+        .contact-btn__inside__top {
+            transform: translateY(-160%) skewY(12deg);
+        }
+
+        .contact-btn__inside__bot {
+            transform: translateY(0px) skewY(0deg);
+        }
+    }
+
+    &__inside {
+        position: relative;
+        display: inline-flex;
+        overflow: hidden;
+        font-family: general, sans-serif;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        text-transform: uppercase;
+
+        &__top {
+            transform: translateY(0) skewY(0);
+            transition-duration: 500ms;
+        }
+        
+        &__bot {
+            position: absolute;
+            transform: translateY(164%) skewY(12deg);
+            transition-duration: 500ms;
+
+
+        }
+    }
+}

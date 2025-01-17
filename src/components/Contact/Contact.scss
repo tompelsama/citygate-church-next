@@ -1,0 +1,119 @@
+.contact-section {
+    margin: 5rem 0;
+    min-height: 24rem;
+    width: 100vw;
+    padding: 0 2.5rem;
+
+    &__container {
+        position: relative;
+        border-radius: 0.5rem;
+        background-color: rgb(0 0 0 / 1) /* #000000 */;
+        padding: 6rem 0;
+        color: #dfdff0;
+
+        @media (min-width: 640px) {
+            overflow: hidden;
+        }
+    }
+
+    &__gallery-left {
+        position: absolute;
+        left: -5rem;
+        top: 0;
+        display: none;
+        height: 100%;
+        width: 18rem;
+        overflow: hidden;
+
+        @media (min-width: 640px) {
+            display: block;
+        }
+
+        @media (min-width: 1024px) {
+            left: 5rem /* 80px */;
+            width: 24rem /* 384px */;
+        }
+
+        &__clip-one {
+            clip-path: polygon(25% 0%, 74% 0, 69% 64%, 34% 73%);
+        }
+
+        &__clip-two {
+            clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
+            transform: translateY(15rem); 
+
+            @media (min-width: 1024px) {
+                transform: translateY(10rem);
+            }              
+        }
+    }
+
+    &__gallery-right {
+        position: absolute;
+        top: -10rem;
+        left: 5rem;
+        width: 15rem;
+
+        @media (min-width: 640px) {
+            top: 50%;
+        }
+
+        @media (min-width: 768px) {
+            left: auto;
+            right: 2.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            top: 5rem /* 80px */;
+            width: 20rem /* 320px */;
+        }
+        
+        &__clip-one {
+            position: absolute;
+
+            @media (min-width: 768px) { 
+                transform: scale(1.25); 
+            }
+        }
+
+        &__clip-two {
+            clip-path: polygon(16% 0, 89% 15%, 75% 100%, 0 97%);
+            
+            @media (min-width: 768px) { 
+                transform: scale(1.25); 
+            }        
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        &__text {
+            margin-bottom: 2.5rem;
+            font-family: "general", "sans-serif";
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        &__animated {
+            font-family: front-page-neue, sans-serif;
+            width: 100%;
+            font-size: 3rem /* 48px */;
+            line-height: 1;
+            color: black;
+            line-height: .9;
+
+            @media (min-width: 768px) {
+                font-size: 6.2rem /* 99.2px */;
+            }
+        }
+
+        &__btn {
+            margin-top: 2.5rem;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,443 @@
+@import url("https://fonts.cdnfonts.com/css/general-sans");
+
+* {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+  background-color: #dfdff0;
+  font-family: "General Sans", sans-serif;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "nimbus-regular";
+  src: url("/fonts/nimbus-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "general";
+  src: url("/fonts/general.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aileron-medium";
+  src: url("/fonts/aileron-medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "aileron-regular";
+  src: url("/fonts/aileron-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "front-page-neue";
+  src: url("/fonts/front-page-neue.otf") format("opentype");
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.font-aileron {
+  font-family: "aileron-medium", sans-serif;
+}
+
+.border-hsla {
+  border-width: 1px;
+  border-color: rgb(255 255 255 / 0.2);
+}
+
+.nav-hover-btn {
+  position: relative;
+  margin-inline-start: 2.5rem /* 40px */;
+  font-family: general, sans-serif;
+  font-size: 0.75rem /* 12px */;
+  line-height: 1rem /* 16px */;
+  text-transform: uppercase;
+  color: #dfdff0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.125rem /* -2px */;
+    left: 0px;
+    height: 2px;
+    width: 100%;
+    transform-origin: bottom right;
+  
+    transform: scaleX(0);
+    background-color: #262626;
+
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.65 0.05 0.36 1);
+    transition-duration: 300ms;
+  }
+
+  &:hover {
+
+    &::after {
+      content: "";
+      transform-origin: bottom left;
+     
+      transform: scaleX(1);
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.floating-nav {
+  background-color: rgb(0 0 0 / 1) /* #000000 */;
+  border-radius: 0.5rem /* 8px */;
+  border-width: 1px;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mask-clip-path-diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.mask-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.special-font b {
+  font-family: "front-page-neue";
+  font-feature-settings: "ss01" on;
+}
+
+.hero-heading {
+  text-transform: uppercase;
+  font-family: front-page-neue, sans-serif;
+  font-weight: 900;
+  font-size: 3rem /* 48px */;
+  line-height: 1;
+  margin: 0;
+
+  @media (min-width: 640px) {
+    right: 2.5rem /* 40px */;  
+    font-size: 4.5rem /* 72px */;
+    line-height: 1;
+  }
+
+  @media (min-width: 768px) {  
+    font-size: 8rem /* 128px */;
+    line-height: 1;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 12rem /* 192px */;
+  }
+
+}
+
+.app {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.animated-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem /* 4px */;
+  font-size: 4.5rem /* 72px */;
+  line-height: 1;
+  text-transform: uppercase;
+  line-height: .8;
+
+  color: rgb(255 255 255 / 1) /* #ffffff */;
+
+  @media (min-width: 640px) {
+    padding-left: 8rem /* 128px */;
+    padding-right: 8rem /* 128px */;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 6rem /* 96px */;
+  }
+}
+
+.animated-word {
+  font-family: front-page-neue, sans-serif;
+  font-weight: 900;
+  opacity: 0;
+  transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
+  transform-origin: 50% 50% -150px !important;
+  will-change: opacity, transform;
+}
+
+.bento-tilt_1 {
+  border-width: 1px;
+  border-color: rgb(255 255 255 / 0.2);
+
+  position: relative;
+  grid-column: span 2 / span 2;
+  overflow: hidden;
+  border-radius: 0.375rem /* 6px */;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.bento-tilt_2 {
+  position: relative;
+  grid-column: span 1 / span 1;
+  grid-row: span 1 / span 1;
+  overflow: hidden;
+  border-radius: 0.375rem /* 6px */;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.bento-title {
+  text-transform: uppercase;
+  font-size: 2.25rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  font-weight: 900;
+  font-family: front-page-neue, sans-serif;
+
+  @media (min-width: 768px) {
+    font-size: 3.75rem /* 60px */;
+    line-height: 1;
+  }
+}
+
+.story-img-container {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  filter: url("#flt_tag");
+
+  @media (min-width: 768px) {
+    height: 100dvh;
+  }
+}
+
+.story-img-mask {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
+
+  @media (min-width: 768px) {
+    left: 20%;
+    top: -10%;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.story-img-content {
+  position: absolute;
+  width: 100%;
+  height: 50dvh;
+  opacity: 1;
+  left: 2.5rem /* 40px */;
+  top: 4rem /* 64px */;
+
+  transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
+
+  @media (min-width: 1024px) {
+    left: -300px;
+    top: -100px;
+  }
+
+  @media (min-width: 768px) {
+    height: 100dvh;
+    left: 0px;
+    top: 2.5rem /* 40px */;
+  }
+}
+
+.gallery-img-container {
+  width: 16rem /* 256px */;
+  height: 16rem /* 256px */;
+  overflow: hidden;
+  background-color: rgb(87 36 255 / 1) /* #5724ff */;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.gallery-img-4 {
+  border-radius: 0.5rem /* 8px */;
+
+  @media (min-width: 768px) {
+    width: 25rem /* 400px */;
+    height: 24rem /* 384px */;
+  }
+
+  @media (min-width: 640px) {
+    width: 20rem /* 320px */;
+    height: 20rem /* 320px */;
+  }
+}
+
+.indicator-line {
+  height: 0.25rem /* 4px */;
+  width: 1px;
+  border-radius: 9999px;
+  background-color: rgb(255 255 255 / 1) /* #ffffff */;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.indicator-line.active {
+  animation: indicator-line 0.5s ease infinite;
+  animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+@keyframes indicator-line {
+  0% {
+    height: 4px;
+    transform: translateY(-0px);
+  }
+  50% {
+    height: 16px;
+    transform: translateY(-4px);
+  }
+  100% {
+    height: 4px;
+    transform: translateY(-0px);
+  }
+}
+
+/* From Uiverse.io by G4b413l */
+/* https://uiverse.io/G4b413l/tidy-walrus-92 */
+.three-body {
+  --uib-size: 35px;
+  --uib-speed: 0.8s;
+  --uib-color: #5d3fd3;
+  position: relative;
+  display: inline-block;
+  height: var(--uib-size);
+  width: var(--uib-size);
+  animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
+}
+
+.three-body__dot {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+}
+
+.three-body__dot:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: var(--uib-color);
+  border-radius: 50%;
+}
+
+.three-body__dot:nth-child(1) {
+  bottom: 5%;
+  left: 0;
+  transform: rotate(60deg);
+  transform-origin: 50% 85%;
+}
+
+.three-body__dot:nth-child(1)::after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite ease-in-out;
+  animation-delay: calc(var(--uib-speed) * -0.3);
+}
+
+.three-body__dot:nth-child(2) {
+  bottom: 5%;
+  right: 0;
+  transform: rotate(-60deg);
+  transform-origin: 50% 85%;
+}
+
+.three-body__dot:nth-child(2)::after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15)
+    ease-in-out;
+}
+
+.three-body__dot:nth-child(3) {
+  bottom: -5%;
+  left: 0;
+  transform: translateX(116.666%);
+}
+
+.three-body__dot:nth-child(3)::after {
+  top: 0;
+  left: 0;
+  animation: wobble2 var(--uib-speed) infinite ease-in-out;
+}
+
+@keyframes spin78236 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wobble1 {
+  0%,
+  100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-66%) scale(0.65);
+    opacity: 0.8;
+  }
+}
+
+@keyframes wobble2 {
+  0%,
+  100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(66%) scale(0.65);
+    opacity: 0.8;
+  }
+}

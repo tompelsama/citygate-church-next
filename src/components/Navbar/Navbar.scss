@@ -1,0 +1,65 @@
+.navbar {
+    position: fixed; 
+    right: 0;
+    left: 0; 
+    top: 1rem; 
+    z-index: 50; 
+    border-style: none;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; 
+    transition-duration: 700ms; 
+
+    @media (min-width: 640px) { 
+        right: 1.5rem;
+        left: 1.5rem; 
+    }
+
+    &-header {
+        position: absolute;
+        width: 100%;
+    }
+
+    &-container {
+        display: flex; 
+        padding: 1rem; 
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    &-logo {
+        display: flex; 
+        align-items: center;
+
+        img {
+            width: 3rem;
+        }
+    }
+
+    &-menu {
+        display: flex; 
+        align-items: center; 
+        height: 100%; 
+
+        &__list {
+            display: none; 
+            margin-right: 2rem; 
+
+            @media (min-width: 768px) { 
+            display: block; 
+            }
+        }
+
+        &__contact {
+            display: none; 
+            gap: 0.25rem; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: #EFF6FF; 
+    
+            @media (min-width: 768px) { 
+                display: flex; 
+            }
+        }
+    }
+}

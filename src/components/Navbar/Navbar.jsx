@@ -7,7 +7,32 @@ import { TiLocationArrow } from "react-icons/ti";
 import Button from "../Button/Button";
 import "./Navbar.scss";
 
-const navItems = ["About", "Ministry", "Lifehouse", "Events", "Give"];
+const navItems = [
+    {
+      name: "About",
+      link: ""
+    },
+    {
+      name: "Sermons",
+      link: "https://citygatefellowship.tithelysetup7.com/podcasts/media"
+    },
+    {
+      name: "Ministry",
+      link: ""
+    },
+    {
+      name: "Lifehouse",
+      link: "https://citygate.elvanto.com.au/groups/embed#v?limit=0"
+    },
+    {
+      name: "Events",
+      link: ""
+    },
+    {
+      name: "Give",
+      link: ""
+    }
+  ];
 
 const NavBar = () => {
   // Refs for audio and navigation container
@@ -16,11 +41,12 @@ const NavBar = () => {
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuActive, setIsMenuActive] = useState(false);
 
-  // Manage audio playback
-  useEffect(() => {
-    
-  }, []);
+  const menuHandler = () => {
+      setIsMenuActive(!isMenuActive)
+      document.body.style.overflow = !isMenuActive ? "hidden" : ""
+  }
 
   useEffect(() => {
     if (currentScrollY === 0) {
@@ -62,23 +88,27 @@ const NavBar = () => {
 
           {/* Navigation Links and Audio Button */}
           <div className="navbar-menu">
-            <div className="navbar-menu__list">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
             <Button
               id="contact-button"
               title="Contact"
               rightIcon={<TiLocationArrow />}
               containerClass="navbar-menu__contact"
             />
+            <div className={`menu hamburger-menu ${isMenuActive ? "open" : ""}`} onClick={menuHandler}>
+              <div className="icon-left"></div>
+              <div className="icon-right"></div>
+            </div>
+            <div className={`navbar-menu__list ${isMenuActive ? "navbar-menu__list--active" : ""}`}>
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  className="nav-hover-btn"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
           </div>
         </nav>
       </header>

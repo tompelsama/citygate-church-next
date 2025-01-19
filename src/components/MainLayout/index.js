@@ -10,6 +10,7 @@ const MainLayout = ({children}) => {
     return <main className="app">
         <Head>
             <link rel="icon" href="/favicon.ico" sizes="any" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <NavBar />
             <main>{children}</main>

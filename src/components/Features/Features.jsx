@@ -65,6 +65,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
         loop
         muted
         autoPlay
+        playsInline
         className="bento-card__video"
       />
       <div className="bento-card__content">
@@ -181,6 +182,7 @@ const Features = () => (
             loop
             muted
             autoPlay
+            playsInline
           />
         </BentoTilt>
       </div>

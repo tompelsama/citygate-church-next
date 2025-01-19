@@ -9,22 +9,67 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
-    const clipAnimation = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#clip",
-        start: "center center",
-        end: "+=800 center",
-        scrub: 0.5,
-        pin: true,
-        pinSpacing: true,
-      },
+    const clipAnimation = gsap.timeline();
+
+    let mm = gsap.matchMedia();
+    // Desktop
+    mm.add("(min-width: 768px)", () => {
+
+      clipAnimation.to(".mask-clip-path", {
+        width: "100vw",
+        height: "100dvh",
+        borderRadius: 0,
+        scrollTrigger: {
+          trigger: "#clip",
+          start: "center center",
+          end: "+=700 center",
+          scrub: 0.5,
+          pin: true,
+          pinSpacing: true,
+        },
+      });
+
+      return () => { // optional
+        clipAnimation.kill()
+      };
     });
 
-    clipAnimation.to(".mask-clip-path", {
-      width: "100vw",
-      height: "100vh",
-      borderRadius: 0,
+    // Mobile
+    mm.add("(max-width: 767px)", () => {
+
+      clipAnimation.to(".mask-clip-path", {
+        width: "100vw",
+        height: "100dvh",
+        borderRadius: 0,
+        scrollTrigger: {
+          trigger: "#clip",
+          start: "center center",
+          end: "bottom center",
+          scrub: 1,
+          pin: true,
+          pinSpacing: true,
+        },
+      });
+
+      return () => { // optional
+        clipAnimation.kill()
+      };
     });
+
+    // clipAnimation.to(".mask-clip-path", {
+    //   width: "100vw",
+    //   height: "100dvh",
+    //   borderRadius: 0,
+    // }, {
+    //   scrollTrigger: {
+    //     trigger: "#clip",
+    //     start: "center center",
+    //     end: "+=700 center",
+    //     scrub: 0.5,
+    //     pin: true,
+    //     pinSpacing: true,
+    //   },
+    // });
   });
 
   return (

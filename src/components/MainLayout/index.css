@@ -10,7 +10,7 @@
 body {
   width: 100dvw;
   overflow-x: hidden;
-  background-color: #dfdff0;
+  background-color: black;
   font-family: "General Sans", sans-serif;
   margin: 0;
 }
@@ -127,15 +127,18 @@ img {
 .animated-title {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.25rem /* 4px */;
-  font-size: 4.5rem /* 72px */;
-  line-height: 1;
+  font-size: 2.5rem;
   text-transform: uppercase;
   line-height: .8;
 
   color: rgb(255 255 255 / 1) /* #ffffff */;
+  text-align: center;
 
   @media (min-width: 640px) {
+    line-height: 1;
+    font-size: 4.5rem /* 72px */;
     padding-left: 8rem /* 128px */;
     padding-right: 8rem /* 128px */;
   }
@@ -152,7 +155,6 @@ img {
   transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
   transform-origin: 50% 50% -150px !important;
   will-change: opacity, transform;
-  margin: 0 0.75rem;
 }
 
 .bento-tilt_1 {

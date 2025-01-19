@@ -1,8 +1,12 @@
 .contact-section {
-    margin: 5rem 0;
     min-height: 24rem;
     width: 100vw;
-    padding: 0 2.5rem;
+    padding: 5rem 2.5rem;
+    background-color: #dfdff0;
+
+    @media (max-width: 600px) {
+        padding: 5rem 1rem;
+    }
 
     &__container {
         position: relative;
@@ -50,12 +54,15 @@
 
     &__gallery-right {
         position: absolute;
-        top: -10rem;
-        left: 5rem;
+        top: -14rem;
+        left: 55%;
         width: 15rem;
+        transform: translate(-50%, 0);
 
         @media (min-width: 640px) {
             top: 50%;
+            left: auto;
+            right: 2.5rem;
         }
 
         @media (min-width: 768px) {
@@ -70,6 +77,11 @@
         
         &__clip-one {
             position: absolute;
+            display: none;
+
+            @media (min-width: 640px) { 
+                display: block;
+            }
 
             @media (min-width: 768px) { 
                 transform: scale(1.25); 
@@ -78,7 +90,12 @@
 
         &__clip-two {
             clip-path: polygon(16% 0, 89% 15%, 75% 100%, 0 97%);
+            display: block;
             
+            @media (min-width: 640px) { 
+                display: none;
+            }
+
             @media (min-width: 768px) { 
                 transform: scale(1.25); 
             }        

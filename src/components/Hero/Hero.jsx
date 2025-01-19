@@ -69,7 +69,7 @@ const Hero = () => {
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#video-frame",
-        start: "center center",
+        start: "center 40%",
         end: "bottom center",
         scrub: true,
       },
@@ -97,6 +97,7 @@ const Hero = () => {
                   ref={nextVdRef}
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   loop
+                  playsInline
                   muted
                   id="current-video"
                 />
@@ -109,6 +110,7 @@ const Hero = () => {
             src={getVideoSrc(currentIndex)}
             loop
             muted
+            playsInline
             id="next-video"
             className="absolute-center hero-section__video-frame__video-one"
           />
@@ -119,6 +121,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
+            playsInline
             className="hero-section__video-frame__video-two"
           />
         </div>

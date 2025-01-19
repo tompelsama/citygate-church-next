@@ -88,7 +88,7 @@
     &__container {
         width: 100%;
         margin: 0 auto;
-        padding: 0 0.75rem;
+        padding: 0 1rem;
 
         @media (min-width: 640px) {
             max-width: 640px;
@@ -147,8 +147,12 @@
         grid-template-rows: repeat(3, minmax(0, 1fr));
         gap: 1.75rem /* 28px */;
 
+        @media (max-width: 600px) {
+            height: auto;
+        }
+
         &__one {
-            grid-row: span 1 / span 1;
+            grid-row: span 10 / span 1;
 
             @media (min-width: 768px) {
                 grid-column: span 1 / span 1;
@@ -157,8 +161,8 @@
         }
 
         &__two {
-            grid-row: span 1 / span 1;
-            margin-inline-start: 8rem /* 128px */;
+            grid-row: span 10 / span 1;
+            // margin-inline-start: 8rem /* 128px */;
 
             @media (min-width: 768px) {
                 grid-column: span 1 / span 1;
@@ -167,7 +171,8 @@
         }
 
         &__three {
-            margin-inline-end: 3.5rem /* 56px */;
+            grid-row: span 9 / span 1;
+            // margin-inline-end: 3.5rem /* 56px */;
 
             @media (min-width: 768px) {
                 grid-column: span 1 / span 1;
@@ -176,6 +181,7 @@
         }
 
         &__four {
+            grid-row: span 6 / span 1;
             
             &__inside {
                 display: flex;
@@ -200,6 +206,7 @@
         }
 
         &__five {
+            grid-row: span 6 / span 1;
             
             video {
                 width: 100%;

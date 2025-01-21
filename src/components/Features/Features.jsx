@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 
 import "./Features.scss"
+import { elementInViewport } from "@/helper";
 
 export const BentoTilt = ({ children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
@@ -43,6 +44,7 @@ export const BentoTilt = ({ children, className = "" }) => {
 export const BentoCard = ({ src, title, description, isComingSoon }) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
+  const bentoVideoRef = useRef(null);
   const hoverButtonRef = useRef(null);
 
   const handleMouseMove = (event) => {
@@ -58,14 +60,27 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
   const handleMouseEnter = () => setHoverOpacity(1);
   const handleMouseLeave = () => setHoverOpacity(0);
 
+  useEffect(() => {
+      // Scroll event listener
+      document.addEventListener("scroll", (event) => {
+        if(elementInViewport(bentoVideoRef.current)) {
+          bentoVideoRef.current.play()
+        }
+        else {
+          bentoVideoRef.current.pause()
+        }
+      })
+  }, [])
+
   return (
     <div className="bento-card">
       <video
+        ref={bentoVideoRef}
         src={src}
         loop
         muted
-        autoPlay
         playsInline
+        preload="none"
         className="bento-card__video"
       />
       <div className="bento-card__content">
@@ -101,8 +116,23 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
   );
 };
 
-const Features = () => (
-  <section className="features-section">
+const Features = () => {
+
+  const videoRef = useRef(null);
+  
+  useEffect(() => {
+      // Scroll event listener
+      document.addEventListener("scroll", (event) => {
+        if(elementInViewport(videoRef.current)) {
+          videoRef.current.play()
+        }
+        else {
+          videoRef.current.pause()
+        }
+      })
+  }, [])
+ 
+  return <section className="features-section">
     <div className="features-section__container">
       <div className="features-section__intro">
         <p className="font-aileron features-section__intro__title">
@@ -178,16 +208,17 @@ const Features = () => (
 
         <BentoTilt className="bento-tilt_2 features-section__grid__five">
           <video
+            ref={videoRef}
             src="videos/feature-5.mp4"
             loop
             muted
-            autoPlay
             playsInline
+            preload="none"
           />
         </BentoTilt>
       </div>
     </div>
   </section>
-);
+};
 
 export default Features;

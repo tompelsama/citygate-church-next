@@ -165,6 +165,7 @@
             // margin-inline-start: 8rem /* 128px */;
 
             @media (min-width: 768px) {
+                grid-row: unset;
                 grid-column: span 1 / span 1;
                 margin-inline-start: 0px;
             }
@@ -175,13 +176,17 @@
             // margin-inline-end: 3.5rem /* 56px */;
 
             @media (min-width: 768px) {
+                grid-row: unset;
                 grid-column: span 1 / span 1;
                 margin-inline-end: 0px;
             }
         }
 
         &__four {
-            grid-row: span 6 / span 1;
+
+            @media (max-width: 768px) {
+                grid-row: span 6 / span 1;
+            }
             
             &__inside {
                 display: flex;
@@ -206,7 +211,10 @@
         }
 
         &__five {
-            grid-row: span 6 / span 1;
+            
+            @media (max-width: 768px) {
+                grid-row: span 6 / span 1;
+            }
             
             video {
                 width: 100%;

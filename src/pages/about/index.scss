@@ -1,0 +1,16 @@
+@import "@/variables";
+
+.about-section {
+    color: white;
+
+    .about-info {
+        max-width: $max-screen;
+        padding: 2.5rem;
+
+        h2 {
+            font-size: 16vw;
+            margin: 0;
+            line-height: 1;
+        }
+    }
+}

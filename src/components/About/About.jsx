@@ -7,6 +7,11 @@ import "./About.scss"
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.config({
+  ignoreMobileResize: false
+})
+ScrollTrigger.normalizeScroll(false);
+
 const About = () => {
   useGSAP(() => {
     const clipAnimation = gsap.timeline();
@@ -17,7 +22,7 @@ const About = () => {
 
       clipAnimation.to(".mask-clip-path", {
         width: "100vw",
-        height: "100dvh",
+        height: "100vh",
         borderRadius: 0,
         scrollTrigger: {
           trigger: "#clip",
@@ -39,7 +44,7 @@ const About = () => {
 
       clipAnimation.to(".mask-clip-path", {
         width: "100vw",
-        height: "100dvh",
+        height: "100vh",
         borderRadius: 0,
         scrollTrigger: {
           trigger: "#clip",

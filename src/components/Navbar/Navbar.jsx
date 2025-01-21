@@ -83,7 +83,7 @@ const NavBar = () => {
         <nav className="navbar-container">
           {/* Logo and Product button */}
           <div className="navbar-logo">
-            <img src="https://dq5pwpg1q8ru0.cloudfront.net/2022/01/29/13/43/21/f817795a-787c-4715-8dc4-93f1ec274c33/circle%20logo%20white.png" alt="logo" />
+            <a href="/"><img src="https://dq5pwpg1q8ru0.cloudfront.net/2022/01/29/13/43/21/f817795a-787c-4715-8dc4-93f1ec274c33/circle%20logo%20white.png" alt="logo" /></a>
           </div>
 
           {/* Navigation Links and Audio Button */}

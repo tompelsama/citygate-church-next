@@ -1,0 +1,61 @@
+@import "@/variables";
+
+.about-header {
+    color: white;
+    position: relative;
+
+    &__hero {
+        position: relative;
+        height: 100rem;
+        overflow: hidden;
+
+        img {
+            width: auto;
+            height: 110%;
+            justify-self: center;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &-container {
+        position: absolute;
+        top: 20rem;
+
+        width: 100%;
+        max-width: $max-screen;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+
+        h1 {
+            font-family: aileron-medium, sans-serif;
+            font-size: 2rem;
+            width: 100%;
+            display: block;
+    
+            .header-top {
+                display: block;
+                text-align: left;
+                max-width: 35rem;
+            }
+    
+            .header-bot {
+                display: block;
+                float: right;
+                text-align: right;
+                margin-top: 45rem;
+                max-width: 35rem;
+            }
+        }
+    }
+
+    
+}

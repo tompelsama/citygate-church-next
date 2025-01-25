@@ -10,7 +10,7 @@ import "./Navbar.scss";
 const navItems = [
     {
       name: "About",
-      link: ""
+      link: "/about"
     },
     {
       name: "Sermons",

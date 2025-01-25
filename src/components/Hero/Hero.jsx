@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { TiLocationArrow } from "react-icons/ti";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from 'next/dynamic'
 
 import Button from "../Button/Button";
@@ -20,12 +20,21 @@ const Hero = () => {
 
   const totalVideos = 4;
   const nextVdRef = useRef(null);
+  const textRoundRef = useRef(null);
 
   const handleMiniVdClick = () => {
     setHasClicked(true);
 
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
+
+  const handleMiniVdMouseEnter = () => {
+    textRoundRef.current.style.opacity = 0
+  }
+
+  // const handleMiniVdMouseLeave = () => {
+  //   textRoundRef.current.style.opacity = 0.5
+  // }
 
   useGSAP(
     () => {
@@ -78,6 +87,17 @@ const Hero = () => {
 
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
+  useEffect(() => {
+    if (textRoundRef.current) {
+      textRoundRef.current.innerHTML = textRoundRef.current.innerText
+      .split("")
+      .map(
+        (char, i) => `<span style="transform:rotate(${i * 9}deg)">${char}</span>`
+      )
+      .join("");
+    }
+  }, [])
+
   return (
     <div className="hero-section">
       
@@ -86,11 +106,15 @@ const Hero = () => {
         id="video-frame"
         className="hero-section__video-frame"
       >
+        <div className="cta-text-round">
+            <p ref={textRoundRef}>Click here - Click here - Click here -</p>
+        </div>
         <div>
           <div className="hero-section__video-frame__content mask-clip-path-diamond">
             <VideoPreview>
               <div
                 onClick={handleMiniVdClick}
+                onMouseOver={handleMiniVdMouseEnter}
                 className="hero-section__video-frame__video-preview"
               >
                 <video
@@ -104,6 +128,9 @@ const Hero = () => {
               </div>
             </VideoPreview>
           </div>
+          {/* <div class="cta-text-container">
+            
+          </div> */}
 
           <video
             ref={nextVdRef}

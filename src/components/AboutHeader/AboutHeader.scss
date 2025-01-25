@@ -29,10 +29,11 @@
     &-container {
         position: absolute;
         top: 20rem;
+        left: 50%;
+        transform: translate(-50%, 0);
 
         width: 100%;
         max-width: $max-screen;
-        margin: 0 auto;
         padding: 0 2.5rem;
 
         h1 {

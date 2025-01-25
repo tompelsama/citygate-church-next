@@ -1,0 +1,14 @@
+.image-parallax {
+    position: absolute;
+    width: 18rem;
+    height: 25rem;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    // box-shadow: rgba(255, 255, 255, 0.5) 0px 22px 70px 4px;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}

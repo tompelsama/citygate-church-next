@@ -405,3 +405,50 @@ img {
     opacity: 0.8;
   }
 }
+
+.cta-text-round {
+  position: absolute;
+	width: 12rem;
+	height: 12rem;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+	animation: rotateText 15s linear infinite;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@keyframes rotateText {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.cta-text-round p {
+  margin: 0;
+  opacity: 0.5;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cta-text-round p span {
+  font-family: general, sans-serif;
+	position: absolute;
+	left: 50%;
+	font-size: 1.2em;
+	transform-origin: 0 10vmin;
+  color: white;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    transform-origin: 0 12vmin;
+  }
+}

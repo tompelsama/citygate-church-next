@@ -39,7 +39,12 @@ const About = () => {
     // Mobile
     mm.add("(max-width: 767px)", () => {
 
-      clipAnimation.to(".mask-clip-path", {
+      clipAnimation.fromTo(".mask-clip-path", {
+        width: "20rem",
+        height: "35dvh",
+        borderRadius: "1.5rem"
+      },
+      {
         width: "100vw",
         height: "100dvh",
         borderRadius: 0,

@@ -36,12 +36,17 @@
         max-width: $max-screen;
         padding: 0 2.5rem;
 
+        @media (max-width: 700px) {
+            padding: 0 1rem;
+        }
+
         h1 {
             font-family: aileron-medium, sans-serif;
             font-size: 2rem;
             width: 100%;
             display: block;
-    
+            line-height: 1.75;
+
             .header-top {
                 display: block;
                 text-align: left;

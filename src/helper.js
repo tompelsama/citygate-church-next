@@ -17,3 +17,7 @@ export function elementInViewport(el) {
       (left + width) > window.pageXOffset
     );
 }
+
+export function randomIntFromInterval(min, max) { // min and max included 
+  return (Math.random() * (max - min) + min).toFixed(4);
+}

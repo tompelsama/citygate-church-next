@@ -41,7 +41,17 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: white;
+  box-shadow: inset 0 0 0 0 white;
+  margin: 0 -.15rem;
+  padding: 0 .15rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+a:hover {
+  box-shadow: inset 100px 0 0 0 white;
+  color: black;
 }
 
 img {

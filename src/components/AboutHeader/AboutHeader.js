@@ -31,7 +31,7 @@ const AboutHeader = () => {
             <img ref={heroImgRef} src="https://dq5pwpg1q8ru0.cloudfront.net/2022/02/22/03/07/18/62350a78-af46-47ab-b2a4-6e15b00a04a5/c-13.jpg" alt="" />
         </div>
         <div className="about-header-container">
-            <h1><span className="header-top">Citygate has always been and will always be a simple church focusing on what matters most</span> <span className="header-bot">LOVING GOD, LOVING PEOPLE, AND MAKING DISCIPLES</span></h1>
+            <h1><span className="header-top">Citygate Fellowship Church is more than a church</span> <span className="header-bot">It’s a living testimony of God’s work through His people</span></h1>
         </div>
     </div>
 }

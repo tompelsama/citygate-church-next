@@ -34,9 +34,6 @@ const About = () => {
         },
       });
 
-      return () => { // optional
-        clipAnimation.kill()
-      };
     });
 
     // Mobile
@@ -56,9 +53,6 @@ const About = () => {
         },
       });
 
-      return () => { // optional
-        clipAnimation.kill()
-      };
     });
 
     // clipAnimation.to(".mask-clip-path", {

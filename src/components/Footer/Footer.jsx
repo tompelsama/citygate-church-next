@@ -21,6 +21,7 @@ const Footer = () => {
           {socialLinks.map((link, index) => (
             <a
               key={index}
+              className="footer-section__socials__link"
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"

@@ -37,6 +37,14 @@
         display: flex; 
         align-items: center;
 
+        a {
+            box-shadow: none;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+
         img {
             width: 3rem;
         }
@@ -78,6 +86,8 @@
 
             @media (max-width: 768px) {
                 top: -41px;
+                right: -1rem;
+                width: 100vw;
             }
 
             @media (max-width: 400px) {

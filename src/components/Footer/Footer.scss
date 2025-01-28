@@ -59,9 +59,10 @@
             justify-content: flex-start;
         }
 
-        a {
+        a.footer-section__socials__link {
             --tw-text-opacity: 1;
             color: rgb(255 255 255 / var(--tw-text-opacity)) /* #ffffff */;
+            box-shadow: none;
 
             transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,6 +71,7 @@
             &:hover {
                 --tw-text-opacity: 1;
                 color: rgb(253 240 224 / var(--tw-text-opacity)) /* #fdf0e0 */;
+                box-shadow: none;
             }
         }
     }

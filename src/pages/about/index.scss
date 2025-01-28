@@ -5,8 +5,12 @@
 
     .about-tagline {
         max-width: $max-screen;
-        padding: 2.5rem;
+        padding: 4rem 2.5rem;
         margin: 0 auto;
+
+        @media (max-width: 700px) {
+            padding: 4rem 1rem;
+        }
 
         h2 {
             font-size: 212px;
@@ -26,6 +30,7 @@
 
     .about-info {
         margin: 2rem 0;
+        background: linear-gradient(0deg, rgba(255,255,255,1) 11%, rgba(0,0,0,0.6993391106442577) 85%, rgba(0,0,0,1) 100%);
 
         &-container {
             position: relative;
@@ -33,18 +38,106 @@
             width: 100%;
             padding: 0 2rem;
             margin: 0 auto;
+            z-index: 1;
+            align-content: center;
+
+            @media (max-width: 700px) {
+                padding: 0 1rem;
+            }
         }
 
         &-gallery {
             position: absolute;
             width: calc(100% - 4rem);
             height: 100%;
+
+            @media (max-width: 700px) {
+                width: 100%;
+                left: 0;
+            }
         }
 
         &-notes {
 
             &__container {
+                position: relative;
                 height: 100vh;
+                z-index: 1;
+                align-content: center;
+
+                .about-info-note {
+                    position: relative;
+                    max-width: 40rem;
+                    padding: 1.5rem 2.5rem;
+                    border-radius: 6px;
+                    background-color: rgba(58, 58, 58, 0.75);
+
+                    @media (max-width: 700px) {
+                        padding: 1.5rem;
+                    }
+
+                    p.about-info-note__title {
+                        display: inline-block;
+                        font-weight: bold;
+                        font-size: 2rem;
+                        margin-bottom: 0.5rem;
+                        padding: 0.5rem 1rem;
+                        
+                        position: absolute;
+                        top: -3.5rem;
+                        left: 1.5rem;
+
+                        @media (max-width: 700px) {
+                            left: 0.5rem;
+                        }
+                    }
+    
+                    p {
+                        color: $yellowish;
+                        font-size: 1.25rem;
+                        line-height: 1.5;
+                        margin: 0;
+                    }
+
+                    &.align-right {
+                        justify-self: right;
+                        text-align: right;
+
+                        p.about-info-note__title {
+                            right: 1.5rem;
+
+                            @media (max-width: 700px) {
+                                right: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .about-end-tagline {
+        position: relative;
+        max-width: $max-screen;
+        padding: 2.5rem;
+        margin: 0 auto;
+        z-index: 1;
+
+        p {
+            font-family: "front-page-neue", sans-serif;
+            font-size: 212px;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: 5px;
+            text-align: center;
+            color: black;
+
+            @media (max-width: $max-screen) {
+                font-size: 16vw;
+            }
+
+            @media (max-width: 800px) {
+                font-size: 14vw;
             }
         }
     }

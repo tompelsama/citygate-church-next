@@ -188,7 +188,7 @@ export default function ImagesParallax() {
             </div>
         </Scrollytelling.Animation>
         <Scrollytelling.Animation
-              tween={{ start: 70, end: 90, to: { y: -250 } }}
+              tween={{ start: 55, end: 95, to: { y: -250 } }}
         >
             <div className="image-parallax" style={{
                 top: "80%",

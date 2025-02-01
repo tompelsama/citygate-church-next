@@ -14,7 +14,8 @@ const navItems = [
     },
     {
       name: "Sermons",
-      link: "https://citygatefellowship.tithelysetup7.com/podcasts/media"
+      link: "https://citygatefellowship.tithelysetup7.com/podcasts/media",
+      target: "_blank"
     },
     {
       name: "Ministry",
@@ -22,7 +23,8 @@ const navItems = [
     },
     {
       name: "Lifehouse",
-      link: "https://citygate.elvanto.com.au/groups/embed#v?limit=0"
+      link: "https://citygate.elvanto.com.au/groups/embed#v?limit=0",
+      target: "_blank"
     },
     {
       name: "Events",
@@ -30,7 +32,7 @@ const navItems = [
     },
     {
       name: "Give",
-      link: ""
+      link: "/give"
     }
   ];
 
@@ -104,6 +106,7 @@ const NavBar = () => {
                   key={index}
                   href={item.link}
                   className="nav-hover-btn"
+                  target={item.target ? item.target : "_self"}
                 >
                   {item.name}
                 </a>

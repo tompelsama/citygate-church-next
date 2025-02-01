@@ -1,7 +1,9 @@
+@import "@/variables";
+
 .about-section {
     min-height: 100vh;
     width: 100vw;
-    background-color: #dfdff0;
+    background-color: $yellowish;
 
     &-container {
         position: relative;

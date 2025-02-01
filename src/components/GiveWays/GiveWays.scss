@@ -1,0 +1,82 @@
+@import "@/variables";
+
+.give-ways {
+    padding: 5rem 2rem;
+
+    @media (max-width: 600px) {
+        padding: 5rem 1rem;
+    }
+
+    &-container {
+        max-width: $max-screen;
+        margin: 0 auto;
+    }
+
+    &-title {
+        h2 {
+            color: white;
+            font-size: 3rem;
+            text-transform: uppercase;
+            text-align: center;
+
+            @media (max-width: 600px) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+
+
+
+        &__col {
+            flex: 1;
+            color: white;
+            margin: 0 1rem;
+
+            &--link {
+                background-color: rgba(255, 255, 255, 0.12);
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.4s ease-in-out;
+
+                &:hover {
+                    box-shadow: inset 200px 0 #ffffff;
+                }
+            }
+
+            @media (max-width: 768px) {
+                flex: 0 0 calc(100% / 3 - 2rem);
+                margin: 0 1rem 2rem;
+            }
+
+            @media (max-width: 500px) {
+                flex: 0 0 100%;
+                margin: 0 0 2rem;
+            }
+
+            &__icon {
+                font-size: 5rem;
+                text-align: center;
+            }
+
+            &__desc {
+                text-align: center;
+
+                &__title {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    margin: 0;
+                }
+
+                &__blurb {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

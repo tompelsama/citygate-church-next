@@ -1,8 +1,10 @@
+@import "@/variables";
+
 .hero-section {
     overflow-x: hidden; 
     position: relative; 
     width: 100vw;
-    background-color: #dfdff0;
+    background-color: $yellowish;
 
     &__loading {
         overflow: hidden; 
@@ -18,7 +20,7 @@
         z-index: 10; 
         width: 100vw;
         height: 100dvh;
-        background-color: #dfdff2;
+        background-color: $yellowish;
 
         &__content {
             overflow: hidden; 
@@ -83,7 +85,7 @@
         bottom: 1.25rem;
         right: 1.25rem;
         z-index: 40;
-        color: rgb(223 223 242 / 1) /* #dfdff2 */;
+        color: $yellowish /* #dfdff2 */;
 
         &--black {
             z-index: 0;

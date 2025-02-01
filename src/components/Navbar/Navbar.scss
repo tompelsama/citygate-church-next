@@ -88,6 +88,7 @@
                 top: -41px;
                 right: -1rem;
                 width: 100vw;
+                transform: translateX(120%);
             }
 
             @media (max-width: 400px) {
@@ -104,11 +105,13 @@
                 position: relative;
                 font-family: general, sans-serif;
                 text-transform: uppercase;
-                color: #dfdff0;
+                color: white;
                 display: block;
                 margin-bottom: 1rem;
                 font-size: 3rem;
                 line-height: 1.5;
+                box-shadow: none;
+                text-decoration: none;
 
                 @media (max-width: 400px) {
                     font-size: 2rem;
@@ -133,15 +136,16 @@
                 }
               
                 &:hover {
+                    box-shadow: none;
               
-                  &::after {
-                    content: "";
-                    transform-origin: bottom left;
-                   
-                    transform: scaleX(1);
-                    background-color: white;
-                    cursor: pointer;
-                  }
+                    &::after {
+                        content: "";
+                        transform-origin: bottom left;
+                    
+                        transform: scaleX(1);
+                        background-color: white;
+                        cursor: pointer;
+                    }
                 }
             }
         }

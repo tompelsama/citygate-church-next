@@ -14,7 +14,7 @@ const About = () => {
 		</div>
 		<Scrollytelling.Root 
 			start="top top" 
-			end="bottom center"
+			end="bottom 10%"
 			scrub={1}
 		>
 			<div className="about-info">

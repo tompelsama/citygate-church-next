@@ -24,7 +24,7 @@
         padding: 1.25rem;
 
         --tw-text-opacity: 1;
-        color: rgb(223 223 240 / var(--tw-text-opacity)) /* #dfdff0 */;
+        color: rgb(223 223 240 / var(--tw-text-opacity)) /* white */;
 
         &__desc {
             margin-top: 0.75rem;
@@ -114,14 +114,14 @@
         &__title {
             font-size: 1.125rem;
             line-height: 1.75rem;
-            color: #dfdff0;
+            color: white;
         }
         
         &__blurb {
             max-width: 28rem;
             font-size: 1.125rem;
             line-height: 1.75rem;
-            color: #dfdff0;
+            color: white;
             opacity: 0.5;
         }
     }

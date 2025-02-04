@@ -5,24 +5,25 @@ import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import GiveWays from '@/components/GiveWays/GiveWays';
+import GiveMission from '@/components/GiveMission/GiveMission';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Give = () => {
 
-    const headerTitleRef = useRef()
+    const headerImgRef = useRef()
 
     useGSAP(() => {
-        gsap.set(headerTitleRef.current, {
-            backgroundPositionY: "20%"
+        gsap.set(headerImgRef.current, {
+            clipPath: "polygon(0% 30%, 100% 0%, 100% 70%, 0% 100%)"
         });
-        gsap.from(headerTitleRef.current, {
-            backgroundPositionY: "50%",
+        gsap.from(headerImgRef.current, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             ease: "power1.inOut",
             scrollTrigger: {
-                trigger: headerTitleRef.current,
+                trigger: ".give-header",
                 start: "top",
-                end: "bottom ",
+                end: "bottom 35%",
                 scrub: true
             },
         });
@@ -31,7 +32,8 @@ const Give = () => {
     return <section className="give">
         <div className="give-header">
             <div className="give-header-container">
-                <h1 ref={headerTitleRef} className="give-header__title">Giving</h1>
+                <h1 className="give-header__title"><span className="give-header__title--top">Gi</span><span className="give-header__title--behind">v</span><span className="give-header__title--top">ing</span></h1>
+                <img ref={headerImgRef} className="give-header__img" src="/img/give-header.jpg" alt="give" />
             </div>
         </div>
         <div className="give-scrolly">
@@ -49,6 +51,7 @@ const Give = () => {
             </div>
         </div>
         <GiveWays />
+        <GiveMission />
     </section>
 }
 

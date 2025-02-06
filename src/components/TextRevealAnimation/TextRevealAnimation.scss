@@ -1,0 +1,14 @@
+.text-reveal {
+    display: flex;
+    color: white;
+    font-size: 2rem;
+
+    p {
+        margin-bottom: 8rem;
+        max-width: 70%;
+    }
+
+    span {
+        opacity: 0.2;
+    }
+}

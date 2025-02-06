@@ -18,8 +18,8 @@ const navItems = [
       target: "_blank"
     },
     {
-      name: "Ministry",
-      link: ""
+      name: "Ministries",
+      link: "/ministries"
     },
     {
       name: "Lifehouse",

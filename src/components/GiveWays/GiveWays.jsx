@@ -18,7 +18,7 @@ const GiveWays = () => {
                         <p className="give-ways-wrap__col__desc__blurb">Give through mobile app</p>
                     </div>
                 </div>
-                <a className="give-ways-wrap__col give-ways-wrap__col--link" href="https://tithe.ly/give_new/www/#/tithely/give-one-time/4587303" target="_blank">
+                <a className="give-ways-wrap__col give-ways-wrap__col--link" href="https://give.tithe.ly/?formId=5be40c0c-6865-11ee-90fc-1260ab546d11" target="_blank">
                     <div className="give-ways-wrap__col__icon">
                         <FaDesktop />
                     </div>

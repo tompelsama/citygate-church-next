@@ -176,6 +176,7 @@ img {
 
   color: rgb(255 255 255 / 1) /* #ffffff */;
   text-align: center;
+  overflow: hidden;
 
   @media (min-width: 640px) {
     line-height: 1;

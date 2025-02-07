@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import TextRevealAnimation from '@/components/TextRevealAnimation/TextRevealAnimation';
 import InvertedRevealerScroll from '@/components/InvertedRevealerScroll/InvertedRevealerScroll';
+import Contact from '@/components/Contact/Contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,11 +46,15 @@ const Ministries = () => {
 				</div>
 			</div>
 		</div>
-		<TextRevealAnimation text={"We believe that every person is uniquely created, gifted, and called by God to accomplish the good works He has prepared in advance. We therefore, are excited to have you join us in serving and making a difference."} />
+		<div className="ministry-intro">
+			<TextRevealAnimation text={"We believe that every person is uniquely created, gifted, and called by God to accomplish the good works He has prepared in advance. We therefore, are excited to have you join us in serving and making a difference."} />
 
-		<TextRevealAnimation text={"Citygate is never built by one mighty person, but by one mighty team made up by countless people with diverse talents, building what is eternal upon the one and only foundation, Jesus Christ."} align={"right"} />
+			<TextRevealAnimation text={"Citygate is never built by one mighty person, but by one mighty team made up by countless people with diverse talents, building what is eternal upon the one and only foundation, Jesus Christ."} align={"right"} />
+		</div>
 
-		<InvertedRevealerScroll />
+		<InvertedRevealerScroll endElementClass={'.contact-section'} />
+
+		<Contact cta={"Check out our front-line teams"} animationText='join hands <br /> with us in this <br />movement' btnText="register here" url={"https://citygate.elvanto.com.au/form/aafeb42f-6ddb-49cf-bb11-8623e4c821ec"} urlTarget='_blank' />
 	</div>
 }
 

@@ -9,7 +9,7 @@ const ImageClipBox = ({ src, clipClass }) => (
   </div>
 );
 
-const Contact = () => {
+const Contact = ({cta = "Join Citygate Fellowship Church", animationText = "let&#39;s build a <br /> new era of <br /> faith together", btnText = "Contact us", url, urlTarget = "_self"}) => {
   return (
     <div id="contact" className="contact-section">
       <div className="contact-section__container">
@@ -37,15 +37,15 @@ const Contact = () => {
 
         <div className="contact-section__title">
           <p className="contact-section__title__text">
-            Join Citygate Fellowship Church
+            {cta}
           </p>
 
           <AnimatedTitle
-            title="let&#39;s build a <br /> new era of <br /> faith together"
+            title={animationText}
             className="special-font contact-section__title__animated"
           />
 
-          <Button title="contact us" containerClass="contact-section__title__btn" />
+          <Button title={btnText} url={url} target={urlTarget} containerClass="contact-section__title__btn" />
         </div>
       </div>
     </div>

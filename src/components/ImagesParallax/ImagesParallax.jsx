@@ -206,7 +206,7 @@ export default function ImagesParallax() {
         >
             <div className="image-parallax" style={{
                 top: "88%",
-                left: "15%",
+                left: !isMobile ? "15%" : "2%",
                 transform: !isMobile ? "scale(1.05)" : "scale(0.8)"
             }}>
                 <img
@@ -220,7 +220,7 @@ export default function ImagesParallax() {
         >
             <div className="image-parallax" style={{
                 top: "95%",
-                right: "2%",
+                right: !isMobile ? "2%" : "-8%",
                 transform: !isMobile ? "scale(0.97)" : "scale(0.68)"
             }}>
                 <img

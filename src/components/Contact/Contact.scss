@@ -115,6 +115,7 @@
             font-family: "general", "sans-serif";
             font-size: 10px;
             text-transform: uppercase;
+            z-index: 1;
         }
 
         &__animated {
@@ -133,6 +134,10 @@
         &__btn {
             margin-top: 2.5rem;
             cursor: pointer;
+
+            &:hover {
+                box-shadow: inset 400px 0 #fff;;
+            }
         }
     }
 }

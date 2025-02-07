@@ -16,6 +16,6 @@ export default function Home() {
       <About />
       <Features />
       {/* <Story /> */}
-      <Contact />
+      <Contact urlTarget="_self" url="/contact-us" />
   </div>
 }

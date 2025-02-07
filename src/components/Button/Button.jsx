@@ -2,14 +2,16 @@ import clsx from "clsx";
 
 import "./Button.scss"
 
-const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
+const Button = ({ id, title, rightIcon, leftIcon, containerClass, url, target = "_self" }) => {
   return (
-    <button
+    <a
+      href={url}
       id={id}
       className={clsx(
         "contact-btn",
         containerClass
       )}
+      target={target}
     >
       {leftIcon}
 
@@ -23,7 +25,7 @@ const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
       </span>
 
       {rightIcon}
-    </button>
+    </a>
   );
 };
 

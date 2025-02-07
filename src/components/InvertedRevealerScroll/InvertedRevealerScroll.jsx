@@ -1,113 +1,93 @@
-import React, { useEffect, useRef } from 'react'
+"use client"
+
+import React, { useEffect, useRef, useState } from 'react'
 import "./InvertedRevealerScroll.scss"
 import { elementInViewport } from '@/helper';
 
-const InvertedRevealerScroll = () => {
+const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
 
     const invertedRevealerRef = useRef(null)
+    const [isMobile, setIsMobile] = useState()
+
+    const resizeHandler = () => {
+        let windowSize = window.innerWidth
+
+        if(windowSize < 600) setIsMobile(true)
+        else setIsMobile(false)
+    }
 
     useEffect(() => {
-        let images = document.querySelectorAll('.article__img')
-        const footerSection = document.querySelector('.footer-section')
+        
+        let images = document.querySelectorAll('.inverted-revealer__img')
+        const endSection = document.querySelector(endElementClass)
 
         function imagePositionHandler() {
             let elementReachTopDistance = invertedRevealerRef.current.offsetTop - document.documentElement.scrollTop;
-            let footerReveal = elementInViewport(footerSection)       
+            let footerReveal = elementInViewport(endSection)       
 
-            if (elementReachTopDistance <= 0 && images && !footerReveal) {
-                images.forEach((image) => {
-                    image.style.position = "fixed"
-                })
+            if(!isMobile) {
+                if (elementReachTopDistance <= 0 && images && !footerReveal) {
+                    images.forEach((image) => {
+                        image.style.position = "fixed"
+                    })
+                }
+                else {
+                    images.forEach((image) => {
+                        image.style.position = "absolute"
+                    })
+                }
             }
             else {
                 images.forEach((image) => {
-                    image.style.position = "absolute"
+                    image.style.position = "sticky"
                 })
             }
         }
 
         window.addEventListener('scroll', imagePositionHandler)
-    }, [])
+
+        resizeHandler()
+        window.addEventListener('resize', resizeHandler);
+        return () => window.removeEventListener('resize', resizeHandler);
+    }, [isMobile])
     
     return <div ref={invertedRevealerRef} className="inverted-revealer">
         <article style={{"--index": 0}}>
-            <div className="article__img">
+            <div className="inverted-revealer__img">
                 <img src="https://picsum.photos/1920/1080?random=1" alt="" loading='lazy' />
             </div>
-            <div className="article__info">
-                <h2>CSS Scroll Animations</h2>
-                <p>Check out this rad demo</p>
-                <a href="#">Follow</a>
+            <div className="inverted-revealer__info">
+                <h3>Worship</h3>
+                <p>Citygate Worship fulfils the prophetic calling to deliver the resounding voice of God through a universal channel of music, song, art performance and prayer, with the aim of leading His people into a divine and intimate encounter with God where He is glorified and magnified.</p>
             </div>
         </article>
         <article style={{"--index": 1}}>
-            <div className="article__img">
+            <div className="inverted-revealer__img">
                 <img src="https://picsum.photos/1920/1080?random=2" alt="" loading='lazy' />
             </div>
-            <div className="article__info">
-                <h2>Animate on scroll</h2>
-                <p>Works with media queries too</p>
-                <a href="#">Check it out</a>
+            <div className="inverted-revealer__info">
+                <h3>Kids</h3>
+                <p>We believe that the calling to make disciple starts from home, meaning that children are the very first human beings to be discipled, and parents are the main disciple-makers to their children.</p>
+                <p>Citygate Kids seeks to actively partner with parents in discipling their children, understanding and loving them as God's unique creations. Through a community of parents and kids, Citygate Kids creates a shared space where fellow parents and kids can walk their journey of growth together.</p>
             </div>
         </article>
         <article style={{"--index": 2}}>
-            <div className="article__img">
+            <div className="inverted-revealer__img">
                 <img src="https://picsum.photos/1920/1080?random=3" alt="" loading='lazy' />
             </div>
-            <div className="article__info">
-                <h2>Parallax Effects</h2>
-                <p>Tweak your timings</p>
-                <a href="#">Get Styling</a>
+            <div className="inverted-revealer__info">
+                <h3>Service</h3>
+                <p>It is always a pleasure to welcome anyone to church and Citygate Service is honoured to be the first to greet people, to open our gate for them to experience Jesus.</p>
             </div>
         </article>
         <article style={{"--index": 3}}>
-            <div className="article__img">
+            <div className="inverted-revealer__img">
                 <img src="https://picsum.photos/1920/1080?random=4" alt="" loading='lazy' />
             </div>
-            <div className="article__info">
-                <h2>Drive Keyframes</h2>
-                <p>CSS alone and...</p>
-                <a href="#">No JavaScript</a>
-            </div>
-        </article>
-        <article style={{"--index": 4}}>
-            <div className="article__img">
-                <img src="https://picsum.photos/1920/1080?random=5" alt="" loading='lazy' />
-            </div>
-            <div className="article__info">
-                <h2>Extra Slides</h2>
-                <p>More content because...</p>
-                <a href="#">CSS to the moon</a>
-            </div>
-        </article>
-        <article style={{"--index": 5}}>
-            <div className="article__img">
-                <img src="https://picsum.photos/1920/1080?random=6" alt="" loading='lazy' />
-            </div>
-            <div className="article__info">
-                <h2>Resize Window</h2>
-                <p>Try resizing the window</p>
-                <a href="#">Resize</a>
-            </div>
-        </article>
-        <article style={{"--index": 6}}>
-            <div className="article__img">
-                <img src="https://picsum.photos/1920/1080?random=7" alt="" loading='lazy' />
-            </div>
-            <div className="article__info">
-                <h2>Browser support</h2>
-                <p>You'll need to be in Chrome</p>
-                <a href="#">Do it</a>
-            </div>
-        </article>
-        <article style={{"--index": 7}}>
-            <div className="article__img">
-                <img src="https://picsum.photos/1920/1080?random=8" alt="" loading='lazy' />
-            </div>
-            <div className="article__info">
-                <h2>Your idea</h2>
-                <p>What would you make?</p>
-                <a href="#">Code</a>
+            <div className="inverted-revealer__info">
+                <h3>Creative</h3>
+                <p>We believe in God as Creator of all things and that is why we believe in the power of creativity embedded by God in every person.</p>
+                <p>Citygate Creative serves as a messenger of Jesus Christ, reinforcing the Gospel and presenting the Good News in a divinely creative way for the world to experience God. Through technology, digital and media, Citygate Creative produces Gospel-centred contents directing people back to their Creator.</p>
             </div>
         </article>
     </div>

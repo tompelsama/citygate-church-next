@@ -20,6 +20,7 @@ const Hero = () => {
 
   const totalVideos = 4;
   const nextVdRef = useRef(null);
+  const backgroundVidRef = useRef(null);
   const textRoundRef = useRef(null);
 
   const handleMiniVdClick = () => {
@@ -31,10 +32,6 @@ const Hero = () => {
   const handleMiniVdMouseEnter = () => {
     textRoundRef.current.style.opacity = 0
   }
-
-  // const handleMiniVdMouseLeave = () => {
-  //   textRoundRef.current.style.opacity = 0.5
-  // }
 
   useGSAP(
     () => {
@@ -52,6 +49,10 @@ const Hero = () => {
           clipPath: "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)",
           ease: "power1.inOut",
           onStart: () => nextVdRef.current.play(),
+          onComplete: () => {
+            backgroundVidRef.current.src = getVideoSrc(currentIndex)
+            backgroundVidRef.current.load()
+          }
         });
         gsap.from("#current-video", {
           transformOrigin: "center center",
@@ -95,6 +96,11 @@ const Hero = () => {
         (char, i) => `<span style="transform:rotate(${i * 9}deg)">${char}</span>`
       )
       .join("");
+    }
+
+    if (backgroundVidRef.current) {
+      backgroundVidRef.current.src = getVideoSrc(currentIndex)
+      backgroundVidRef.current.load()
     }
   }, [])
 
@@ -142,9 +148,10 @@ const Hero = () => {
             className="absolute-center hero-section__video-frame__video-one"
           />
           <video
-            src={getVideoSrc(
-              currentIndex === totalVideos - 1 ? 1 : currentIndex
-            )}
+            ref={backgroundVidRef}
+            // src={getVideoSrc(
+            //   currentIndex === totalVideos - 1 ? 1 : currentIndex
+            // )}
             autoPlay
             loop
             muted

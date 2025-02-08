@@ -95,6 +95,7 @@ const NavBar = () => {
               title="Contact"
               rightIcon={<TiLocationArrow />}
               containerClass="navbar-menu__contact"
+              url="/contact"
             />
             <div className={`menu hamburger-menu ${isMenuActive ? "open" : ""}`} onClick={menuHandler}>
               <div className="icon-left"></div>

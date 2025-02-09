@@ -51,7 +51,9 @@ const TextRevealAnimation = ({text, align = "left"}) => {
         <div className="container">
             <p ref={textRevealRef} style={{
                 justifySelf: (align === 'right') ? "flex-end" : "flex-start",
-                textAlign: (align === 'right') ? "right" : "left"
+                textAlign: (align === 'right') ? "right" : "left",
+                marginRight: (align === 'right') ? 0 : "auto",
+                marginLeft: (align !== 'right') ? 0 : "auto",
             }}>{splitText && <TextReveal splitText={splitText} />}</p>
         </div>
     </div>

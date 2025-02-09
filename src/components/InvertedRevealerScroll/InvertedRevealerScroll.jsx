@@ -3,6 +3,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./InvertedRevealerScroll.scss"
 import { elementInViewport } from '@/helper';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
 
@@ -12,9 +17,56 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
     const resizeHandler = () => {
         let windowSize = window.innerWidth
 
-        if(windowSize < 600) setIsMobile(true)
+        if(windowSize < 768) setIsMobile(true)
         else setIsMobile(false)
     }
+
+    useGSAP(
+        () => {
+            let mm = gsap.matchMedia();
+
+            let pictures = document.querySelectorAll('.inverted-revealer__img__pic')
+
+            // Desktop
+            mm.add("(min-width: 768px)", () => {
+
+                pictures.forEach((pic, index) => {
+
+                    if(index > 0 && index < pictures.length - 1) {
+                        gsap.set(pic, { 
+                            clipPath: "inset(0 0 0 0)"
+                        });
+                        gsap.to(pic, {
+                            clipPath: "inset(100% 0 0 0)", 
+                            ease: "power1.inOut",
+                            scrollTrigger: {
+                                trigger: pic,
+                                start: "bottom top",
+                                end: "bottom bottom",
+                                scrub: 1,
+                            },
+                        });
+                    }
+                    else {
+                        gsap.set(pic, { 
+                            clipPath: "inset(0 0 0 0)"
+                        });
+                        gsap.to(pic, {
+                            clipPath: "inset(100% 0 0 0)", 
+                            ease: "power1.inOut",
+                            scrollTrigger: {
+                                trigger: pic,
+                                start: "bottom top",
+                                end: "bottom bottom",
+                                scrub: 1,
+                            },
+                        });
+                    }
+                })
+        
+            });
+        }
+    );
 
     useEffect(() => {
         
@@ -52,18 +104,18 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
     }, [isMobile])
     
     return <div ref={invertedRevealerRef} className="inverted-revealer">
-        <article style={{"--index": 0}}>
+        <article className="inverted-revealer-group" style={{"--index": 0}}>
             <div className="inverted-revealer__img">
-                <img src="https://picsum.photos/1920/1080?random=1" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=1" alt="" loading='lazy' />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Worship</h3>
                 <p>Citygate Worship fulfils the prophetic calling to deliver the resounding voice of God through a universal channel of music, song, art performance and prayer, with the aim of leading His people into a divine and intimate encounter with God where He is glorified and magnified.</p>
             </div>
         </article>
-        <article style={{"--index": 1}}>
+        <article className="inverted-revealer-group" style={{"--index": 1}}>
             <div className="inverted-revealer__img">
-                <img src="https://picsum.photos/1920/1080?random=2" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=2" alt="" loading='lazy' />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Kids</h3>
@@ -71,18 +123,18 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
                 <p>Citygate Kids seeks to actively partner with parents in discipling their children, understanding and loving them as God's unique creations. Through a community of parents and kids, Citygate Kids creates a shared space where fellow parents and kids can walk their journey of growth together.</p>
             </div>
         </article>
-        <article style={{"--index": 2}}>
+        <article className="inverted-revealer-group" style={{"--index": 2}}>
             <div className="inverted-revealer__img">
-                <img src="https://picsum.photos/1920/1080?random=3" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=3" alt="" loading='lazy' />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Service</h3>
                 <p>It is always a pleasure to welcome anyone to church and Citygate Service is honoured to be the first to greet people, to open our gate for them to experience Jesus.</p>
             </div>
         </article>
-        <article style={{"--index": 3}}>
+        <article className="inverted-revealer-group" style={{"--index": 3}}>
             <div className="inverted-revealer__img">
-                <img src="https://picsum.photos/1920/1080?random=4" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=4" alt="" loading='lazy' />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Creative</h3>

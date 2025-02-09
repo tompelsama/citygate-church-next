@@ -28,7 +28,7 @@ const navItems = [
     },
     {
       name: "Events",
-      link: ""
+      link: "/events"
     },
     {
       name: "Give",

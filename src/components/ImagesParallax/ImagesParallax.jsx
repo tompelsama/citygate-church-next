@@ -30,9 +30,6 @@ export default function ImagesParallax() {
     }, [isMobile])
 
     return <>
-    {
-        console.log(isMobile)
-    }
         <Scrollytelling.Animation
               tween={{ start: 0, end: 25, to: { y: -100 } }}
         >

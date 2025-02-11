@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
 import "./index.scss"
 
-async function getEvents() {
+// This gets called on every request
+export async function getServerSideProps() {
+    // Fetch data from external API
     try {
         const res = await fetch(BASE_URL + "/api/elvanto?q=59n0rr4m5v", {
             next: {
@@ -12,17 +14,15 @@ async function getEvents() {
             }
         })
 
-        return res.json()
+        const data = await res.json()
+        // Pass data to the page via props
+        return { props: { data } }
     } catch (error) {
         console.error(error);
     }
 }
 
-const eventsData = await getEvents()
-
-// console.log(eventsData)
-
-const Page = () => {
+const Page = ({data}) => {
     const router = useRouter()
 
     const [event, setEvent] = useState(null)
@@ -30,14 +30,14 @@ const Page = () => {
     useEffect(() => {
         if(!router.isReady) return;
 
-        if(eventsData) {
-            const eventData = eventsData.events.event.find((item) => {
+        if(data) {
+            const eventData = data.events.event.find((item) => {
                 return item.id === router.query.id
             })
             setEvent(eventData)
         }
 
-    }, [eventsData, router.isReady])
+    }, [data, router.isReady])
 
     return <section className="event">
         <div className="container event-container">

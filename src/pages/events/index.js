@@ -9,7 +9,9 @@ const DynamicEvent = dynamic(() => import('@/components/EventList/EventList'), {
     ssr: false
 })
 
-async function getEvents() {
+// This gets called on every request
+export async function getServerSideProps() {
+    // Fetch data from external API
     try {
         const res = await fetch(BASE_URL + "/api/elvanto?q=59n0rr4m5v", {
             next: {
@@ -17,15 +19,20 @@ async function getEvents() {
             }
         })
 
-        return res.json()
+        const data = await res.json()
+        // Pass data to the page via props
+        return { props: { data } }
     } catch (error) {
         console.error(error);
     }
 }
-
-const eventData = await getEvents()
  
-const index = () => {
+const index = ({data}) => {
+
+    useEffect(() => {
+
+    }, [])
+
     return <section className="events">
         <HeaderContentSection 
 			titleStart={"Ev"} 
@@ -39,7 +46,7 @@ const index = () => {
             <div className="container">
                 <ul className="events-article__list">
                     {
-                        eventData.events && eventData.events.event.reverse().map((event, index) => {
+                        data.events && data.events.event.reverse().map((event, index) => {
                             return <DynamicEvent key={index} event={event} />
                         })  
                     }

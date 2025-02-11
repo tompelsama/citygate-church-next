@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as Scrollytelling from '@bsmnt/scrollytelling'
 import "./ImagesParallax.scss"
-import { randomIntFromInterval } from '@/helper'
 import gsap from 'gsap'
 
 export default function ImagesParallax() {

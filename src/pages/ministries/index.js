@@ -52,7 +52,7 @@ const Ministries = () => {
 			<TextRevealAnimation text={"Citygate is never built by one mighty person, but by one mighty team made up by countless people with diverse talents, building what is eternal upon the one and only foundation, Jesus Christ."} align={"right"} />
 		</div>
 
-		<InvertedRevealerScroll endElementClass={'.contact-section'} />
+		<InvertedRevealerScroll endElementClass={'.footer-section'} />
 
 		<Contact cta={"Check out our front-line teams"} animationText='join hands <br /> with us in this <br />movement' btnText="register here" url={"https://citygate.elvanto.com.au/form/aafeb42f-6ddb-49cf-bb11-8623e4c821ec"} urlTarget='_blank' />
 	</div>

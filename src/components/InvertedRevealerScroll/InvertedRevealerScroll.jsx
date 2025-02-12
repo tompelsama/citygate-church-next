@@ -19,6 +19,9 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
 
         if(windowSize < 768) setIsMobile(true)
         else setIsMobile(false)
+
+        gsap.matchMediaRefresh()
+        ScrollTrigger.refresh(true)
     }
 
     useGSAP(
@@ -33,22 +36,40 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
                 pictures.forEach((pic, index) => {
 
                     if(index > 0 && index < pictures.length - 1) {
-                        gsap.set(pic, { 
-                            clipPath: "inset(0 0 0 0)"
+                        // console.log(index)
+                        gsap.from(pic, { 
+                            clipPath: "inset(0% 0 0 0)"
                         });
                         gsap.to(pic, {
                             clipPath: "inset(100% 0 0 0)", 
                             ease: "power1.inOut",
                             scrollTrigger: {
                                 trigger: pic,
-                                start: "bottom top",
+                                start: "top -50%",
                                 end: "bottom bottom",
                                 scrub: 1,
+                                // markers: true
+                            },
+                        });
+                    }
+                    else if(index === 0) {
+                        gsap.from(pic, { 
+                            clipPath: "inset(0% 0 0 0)"
+                        });
+                        gsap.to(pic, {
+                            clipPath: "inset(100% 0 0 0)", 
+                            ease: "power1.inOut",
+                            scrollTrigger: {
+                                trigger: pic,
+                                start: "top -50%",
+                                end: "bottom bottom",
+                                scrub: 1
                             },
                         });
                     }
                     else {
-                        gsap.set(pic, { 
+                        console.log(index)
+                        gsap.from(pic, { 
                             clipPath: "inset(0 0 0 0)"
                         });
                         gsap.to(pic, {
@@ -56,9 +77,9 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
                             ease: "power1.inOut",
                             scrollTrigger: {
                                 trigger: pic,
-                                start: "bottom top",
-                                end: "bottom bottom",
-                                scrub: 1,
+                                start: "top -50%",
+                                end: "50% bottom",
+                                scrub: 1
                             },
                         });
                     }
@@ -75,7 +96,9 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
 
         function imagePositionHandler() {
             let elementReachTopDistance = invertedRevealerRef.current.offsetTop - document.documentElement.scrollTop;
-            let footerReveal = elementInViewport(endSection)       
+            let footerReveal = elementInViewport(endSection)
+
+            console.log(footerReveal)
 
             if(!isMobile) {
                 if (elementReachTopDistance <= 0 && images && !footerReveal) {
@@ -106,7 +129,7 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
     return <div ref={invertedRevealerRef} className="inverted-revealer">
         <article className="inverted-revealer-group" style={{"--index": 0}}>
             <div className="inverted-revealer__img">
-                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=1" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=1" alt="" />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Worship</h3>
@@ -115,7 +138,7 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
         </article>
         <article className="inverted-revealer-group" style={{"--index": 1}}>
             <div className="inverted-revealer__img">
-                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=2" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=2" alt="" />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Kids</h3>
@@ -125,7 +148,7 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
         </article>
         <article className="inverted-revealer-group" style={{"--index": 2}}>
             <div className="inverted-revealer__img">
-                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=3" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=3" alt="" />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Service</h3>
@@ -134,7 +157,7 @@ const InvertedRevealerScroll = ({endElementClass = '.footer-section'}) => {
         </article>
         <article className="inverted-revealer-group" style={{"--index": 3}}>
             <div className="inverted-revealer__img">
-                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=4" alt="" loading='lazy' />
+                <img className="inverted-revealer__img__pic" src="https://picsum.photos/1920/1080?random=4" alt="" />
             </div>
             <div className="inverted-revealer__info">
                 <h3>Creative</h3>

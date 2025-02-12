@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { TiLocationArrow } from "react-icons/ti";
+import { BsHourglassSplit } from "react-icons/bs";
 
 import "./Features.scss"
 import { elementInViewport } from "@/helper";
@@ -42,7 +42,6 @@ const Features = () => {
             </>
           }
           description="Experience inspiring messages, heartfelt worship, and a welcoming atmosphere for all."
-          isComingSoon
         />
       </BentoTilt>
 
@@ -56,7 +55,6 @@ const Features = () => {
               </>
             }
             description="Teaching kids about God's love in fun and engaging ways."
-            isComingSoon
           />
         </BentoTilt>
 
@@ -69,7 +67,8 @@ const Features = () => {
               </>
             }
             description="We create a welcoming space where everyone can connect, worship, and experience life-changing encounters with God."
-            isComingSoon
+            url={"https://citygate.elvanto.com.au/groups/embed#v?limit=0"}
+            target="_blank"
           />
         </BentoTilt>
 
@@ -82,7 +81,6 @@ const Features = () => {
               </>
             }
             description="Empowering women to live boldly in their faith."
-            isComingSoon
           />
         </BentoTilt>
 
@@ -92,7 +90,7 @@ const Features = () => {
               M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
             </h1>
 
-            <TiLocationArrow className="features-section__grid__four__inside__arrow" />
+            <BsHourglassSplit className="features-section__grid__four__inside__arrow" />
           </div>
         </BentoTilt>
 

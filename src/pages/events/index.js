@@ -18,20 +18,16 @@ export async function getServerSideProps() {
                 revalidate: 3600
             }
         })
-
         const data = await res.json()
         // Pass data to the page via props
         return { props: { data } }
     } catch (error) {
-        console.error(error);
+        console.log(error)
+        return { props: {data: null}}
     }
 }
  
 const index = ({data}) => {
-
-    useEffect(() => {
-
-    }, [])
 
     return <section className="events">
         <HeaderContentSection 
@@ -46,9 +42,9 @@ const index = ({data}) => {
             <div className="container">
                 <ul className="events-article__list">
                     {
-                        data.events && data.events.event.reverse().map((event, index) => {
+                        data ? data.events.event.reverse().map((event, index) => {
                             return <DynamicEvent key={index} event={event} />
-                        })  
+                        }) : <p className="error">Something wrong with the data. Please try again later.</p>
                     }
                 </ul>
             </div>

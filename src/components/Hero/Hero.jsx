@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
+  const [clipPathCross, setClipPathCross] = useState("");
 
   // const [loading, setLoading] = useState(true);
   // const [loadedVideos, setLoadedVideos] = useState(0);
@@ -70,7 +71,7 @@ const Hero = () => {
 
   useGSAP(() => {
     gsap.set("#video-frame", {
-      clipPath: "polygon(35% 65%, 45% 65%, 45% 50%, 55% 50%, 55% 65%, 65% 65%, 65% 75%, 55% 75%, 55% 100%, 45% 100%, 45% 75%, 35% 75%)",
+      clipPath: clipPathCross,
       // borderRadius: "0% 0% 40% 10%",
     });
     gsap.from("#video-frame", {
@@ -84,9 +85,21 @@ const Hero = () => {
         scrub: true,
       },
     });
+  }, {
+    dependencies: [clipPathCross],
+    revertOnUpdate: true,
   });
 
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+
+  const resizeHandler = () => {
+    console.log('asd')
+    const windowWidth = window.innerWidth
+
+    if(windowWidth <= 600) setClipPathCross("polygon(20% 65%, 40% 65%, 40% 50%, 60% 50%, 60% 65%, 80% 65%, 80% 75%, 60% 75%, 60% 100%, 40% 100%, 40% 75%, 20% 75%)")
+    else if(windowWidth >= 1300) setClipPathCross("polygon(35% 60%, 45% 60%, 45% 45%, 55% 45%, 55% 60%, 65% 60%, 65% 73%, 55% 73%, 55% 100%, 45% 100%, 45% 73%, 35% 73%)")
+    else setClipPathCross("polygon(35% 65%, 45% 65%, 45% 50%, 55% 50%, 55% 65%, 65% 65%, 65% 75%, 55% 75%, 55% 100%, 45% 100%, 45% 75%, 35% 75%)")
+  }
 
   useEffect(() => {
     if (textRoundRef.current) {
@@ -102,6 +115,11 @@ const Hero = () => {
       backgroundVidRef.current.src = getVideoSrc(currentIndex)
       backgroundVidRef.current.load()
     }
+
+    window.addEventListener('resize', resizeHandler);
+    resizeHandler()
+
+    return () => window.removeEventListener('resize', resizeHandler);
   }, [])
 
   return (

@@ -52,7 +52,7 @@ const About = () => {
           trigger: "#clip",
           start: "center center",
           end: "bottom center",
-          scrub: 0.5,
+          scrub: 1,
           pin: true,
           pinSpacing: true,
         },

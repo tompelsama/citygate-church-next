@@ -29,7 +29,7 @@ const BentoCard = ({ src, title, description, url, target = "_self" }) => {
   useEffect(() => {
       // Scroll event listener
       document.addEventListener("scroll", (event) => {
-        if(elementInViewport(bentoVideoRef.current)) {
+        if(elementInViewport(bentoVideoRef.current, 200)) {
           bentoVideoRef.current.play()
         }
         else {

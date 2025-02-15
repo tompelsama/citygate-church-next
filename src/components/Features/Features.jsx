@@ -13,7 +13,7 @@ const Features = () => {
   useEffect(() => {
       // Scroll event listener
       document.addEventListener("scroll", (event) => {
-        if(elementInViewport(videoRef.current)) {
+        if(elementInViewport(videoRef.current, 200)) {
           videoRef.current.play()
         }
         else {

@@ -1,5 +1,5 @@
-export function elementInViewport(el) {
-	var top = el.offsetTop;
+export function elementInViewport(el, offset = 0) {
+	var top = el.offsetTop - offset;
 	var left = el.offsetLeft;
 	var width = el.offsetWidth;
 	var height = el.offsetHeight;
